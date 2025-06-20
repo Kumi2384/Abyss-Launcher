@@ -64,6 +64,23 @@ ipcMain.handle('Microsoft-window', async (_, client_id) => {
     return await new Microsoft(client_id).getAuth();
 })
 
+ipcMain.handle('Offline-window', async (_, username) => {
+    if (!username || username.length < 3) {
+        return { error: true, message: "Pseudo invalide." };
+    }
+
+    return {
+        name: username,
+        uuid: username,
+        access_token: '',
+        user_properties: '{}',
+        meta: {
+            type: 'offline',
+            demo: false
+        }
+    };
+});
+
 ipcMain.handle('is-dark-theme', (_, theme) => {
     if (theme === 'dark') return true
     if (theme === 'light') return false

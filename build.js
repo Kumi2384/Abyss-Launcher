@@ -77,7 +77,7 @@ class Index {
                     releaseType: 'release',
                 }],
                 win: {
-                    icon: "./app/assets/images/icon.ico",
+                    icon: "./src/assets/images/icon.ico",
                     target: [{
                         target: "nsis",
                         arch: "x64"
@@ -90,7 +90,7 @@ class Index {
                     runAfterFinish: true
                 },
                 mac: {
-                    icon: "./app/assets/images/icon.icns",
+                    icon: "./src/assets/images/icon.icns",
                     category: "public.app-category.games",
                     identity: null,
                     target: [{
@@ -103,7 +103,7 @@ class Index {
                     }]
                 },
                 linux: {
-                    icon: "./app/assets/images/icon.png",
+                    icon: "./src/assets/images/icon.png",
                     target: [{
                         target: "AppImage",
                         arch: "x64"
