@@ -1,7 +1,7 @@
 {
     "name": "abysse-launcher",
     "preductname": "abysse-launcher",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Launcher Mincraft pour le serveur Paff-City",
     "main": "src/app.js",
     "author": {
