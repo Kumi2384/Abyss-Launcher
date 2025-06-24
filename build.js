@@ -144,6 +144,25 @@ class Index {
             console.log('connection error')
         }
     }
+
 }
+const { app, BrowserWindow } = require('electron');
+
+function createWindow() {
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    }
+  });
+
+  win.loadFile('index.html');
+  win.webContents.openDevTools();  // <--- active la console
+}
+
+app.whenReady().then(createWindow);
+
+
 
 new Index().init();

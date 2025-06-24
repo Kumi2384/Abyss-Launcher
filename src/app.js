@@ -64,16 +64,26 @@ ipcMain.handle('Microsoft-window', async (_, client_id) => {
     return await new Microsoft(client_id).getAuth();
 })
 
+const { getSkin } = require('./assets/js/utils/skin.js');
+
 ipcMain.handle('Offline-window', async (_, username) => {
     if (!username || username.length < 3) {
         return { error: true, message: "Pseudo invalide." };
     }
 
+    const textures = await getSkin(username);
+
+    const properties = textures ? [{
+        name: 'textures',
+        value: textures.value,
+        signature: textures.signature
+    }] : [];
+
     return {
         name: username,
         uuid: username,
         access_token: '',
-        user_properties: '{}',
+        user_properties: JSON.stringify({ textures: properties }),
         meta: {
             type: 'offline',
             demo: false
